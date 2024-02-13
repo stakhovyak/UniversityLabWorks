@@ -34,7 +34,9 @@ public final class Matrix implements Cloneable{
      * @throws CloneNotSupportedException Throws an exception if clone method is not supported
      */
     public Matrix(Matrix matrix) throws CloneNotSupportedException {
-        this(matrix.clone().length, matrix.clone().height, matrix.clone().values);
+        this(matrix.clone().length,
+                matrix.clone().height,
+                matrix.clone().values);
     }
 
     /**
