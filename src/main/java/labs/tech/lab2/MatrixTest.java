@@ -1,4 +1,4 @@
-package labs.tech.lab1.lab2;
+package labs.tech.lab2;
 
 public class MatrixTest {
     public static void main(String[] args) throws CloneNotSupportedException {

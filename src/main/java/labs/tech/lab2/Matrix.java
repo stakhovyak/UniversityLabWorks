@@ -1,4 +1,4 @@
-package labs.tech.lab1.lab2;
+package labs.tech.lab2;
 
 import java.util.Scanner;
 import java.util.function.DoubleBinaryOperator;
