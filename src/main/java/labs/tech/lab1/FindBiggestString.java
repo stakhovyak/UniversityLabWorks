@@ -1,4 +1,7 @@
 package labs.tech.lab1;
+/**
+ * TODO Extract some methods maybe?
+ */
 
 import java.util.*;
 

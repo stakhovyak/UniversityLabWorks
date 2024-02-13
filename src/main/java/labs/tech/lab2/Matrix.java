@@ -1,5 +1,5 @@
 package labs.tech.lab2;
-
+// fff
 import java.util.Scanner;
 import java.util.function.DoubleBinaryOperator;
 
