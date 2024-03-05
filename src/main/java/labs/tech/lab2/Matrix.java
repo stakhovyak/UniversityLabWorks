@@ -1,5 +1,5 @@
 package labs.tech.lab2;
-// fff
+
 import java.util.Scanner;
 import java.util.function.DoubleBinaryOperator;
 
@@ -8,7 +8,7 @@ import java.util.function.DoubleBinaryOperator;
  * operations with each element of current matrix and its rows
  * arithmetic mean.
  */
-public final class Matrix implements Cloneable{
+public final class Matrix implements Cloneable {
     private final int length;
     private final int height;
     private final double[][] values;
@@ -48,18 +48,22 @@ public final class Matrix implements Cloneable{
         return (Matrix) super.clone();
     }
 
+    public double[][] getValues() {
+        return values;
+    }
+
     /**
      * The method subtracts arithmetical mean from each element of row.
      */
     public void subtractArithmeticalMeanFromEachElement() {
-        traverse((e, mean) -> e - mean);
+        traverseCalculatingArithmeticMean((e, mean) -> e - mean);
     }
 
     /**
      * The method add arithmetical mean to each element of row
      */
     public void addArithmeticalMeanFromEachElement() {
-        traverse((e, mean) -> e + mean);
+        traverseCalculatingArithmeticMean((e, mean) -> e + mean);
     }
 
     /**
@@ -85,7 +89,7 @@ public final class Matrix implements Cloneable{
      * rows mean ONCE FOR EACH ROW and applies lambda for each element
      * @param operation A functional interface.
      */
-    private void traverse(DoubleBinaryOperator operation) {
+    private void traverseCalculatingArithmeticMean(DoubleBinaryOperator operation) {
         for (int i = 0; i < length; i++) {
             double rowMean = calculateArithmeticMean(values[i]);
             for (int j = 0; j < height; j++) {
@@ -127,7 +131,7 @@ public final class Matrix implements Cloneable{
             System.out.println("\nOriginal Matrix:");
             System.out.println(matrix.toString());
 
-            matrix.subtractArithmeticalMeanFromEachElement();
+            matrix.addArithmeticalMeanFromEachElement();
 
             System.out.println("\nMatrix after subtracting the arithmetic mean from each element:");
             System.out.println(matrix.toString());

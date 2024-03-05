@@ -1,13 +1,36 @@
 package labs.tech.lab2;
 
-/**
- * Testing out how they are cloneable, Turning out they are cloneable as freak!
- */
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class MatrixTest {
-    public static void main(String[] args) throws CloneNotSupportedException {
-        double[][] arr = {{1,2,3,4},{3,2,7,6},{9,0,1,4},{1,9,0,4}};
-        var matrix1 = new Matrix(4,4, arr);
-        var matrix2 = new Matrix(matrix1);
-        matrix2.addArithmeticalMeanFromEachElement();
+    @Test
+    public void testSubtractArithmeticalMeanFromEachElement() {
+        double[][] data = {{1, 2, 3}, {4, 5, 6}};
+        Matrix matrix = new Matrix(2, 3, data);
+        matrix.subtractArithmeticalMeanFromEachElement();
+
+        double[][] expected = {{-1, 0, 1}, {-1, 0, 1}};
+        assertArrayEquals(expected, matrix.getValues());
+    }
+
+    @Test
+    public void testAddArithmeticalMeanFromEachElement() {
+        double[][] data = {{1, 2, 3}, {4, 5, 6}};
+        Matrix matrix = new Matrix(2, 3, data);
+        matrix.addArithmeticalMeanFromEachElement();
+
+        double[][] expected = {{3, 4, 5}, {9, 10, 11}};
+        assertArrayEquals(expected, matrix.getValues());
+    }
+
+    @Test
+    public void testClone() throws CloneNotSupportedException {
+        double[][] data = {{1, 2}, {3, 4}};
+        Matrix originalMatrix = new Matrix(2, 2, data);
+        Matrix clonedMatrix = originalMatrix.clone();
+
+        assertNotSame(originalMatrix, clonedMatrix);
+        assertArrayEquals(originalMatrix.getValues(), clonedMatrix.getValues());
     }
 }
